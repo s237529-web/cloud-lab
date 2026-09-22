@@ -1,17 +1,39 @@
+<<<<<<< HEAD
 services:
   backend:
     build: ./server
+=======
+cat > docker-compose.yml <<'EOF'
+services:
+  backend:
+    image: huya0402/mern-backend:1.0
+>>>>>>> 52fbe87 (Complete Lab 04 Docker Hub Multi-Container)
     container_name: mern-backend
     ports:
       - "5000:5000"
     environment:
+<<<<<<< HEAD
       MONGODB_URI: ${MONGODB_URI}
       PORT: 5000
 
   frontend:
     build: ./client
+=======
+      PORT: 5000
+      MONGODB_URI: ${MONGODB_URI}
+    restart: unless-stopped
+
+  frontend:
+    image: huya0402/mern-frontend:2.0
+>>>>>>> 52fbe87 (Complete Lab 04 Docker Hub Multi-Container)
     container_name: mern-frontend
     ports:
       - "5173:5173"
     depends_on:
+<<<<<<< HEAD
       - backend
+=======
+      - backend
+    restart: unless-stopped
+EOF
+>>>>>>> 52fbe87 (Complete Lab 04 Docker Hub Multi-Container)

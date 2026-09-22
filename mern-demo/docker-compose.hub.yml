@@ -1,0 +1,18 @@
+services:
+  backend:
+    image: huya0402/mern-backend:1.0
+    container_name: mern-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    restart: unless-stopped
+
+  frontend:
+    image: huya0402/mern-frontend:2.0
+    container_name: mern-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    restart: unless-stopped
